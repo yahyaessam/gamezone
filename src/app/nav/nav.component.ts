@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'gz-nav',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService:ModalService) { }
 
   ngOnInit(): void {
+  }
+
+  openLoginModal(event:any) {
+    event.preventDefault();
+    this.modalService.toggleModal('auth');
   }
 
 }
